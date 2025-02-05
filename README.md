@@ -43,7 +43,7 @@ You can include as many points as you want. just ensure you specify an x-coordin
 
 If you know where a structure with "liftable bits" is you can put the position of the structure in cubiomes run it on incremental until you get around 250k results.
 
-You can theen take those results and put it into a text file in the same folder as the river cracker and then put the textfile name at the end and make it so it only searches seeds where the structure can spawn which gives you less possible results if you don't have that many rivers.
+You can then take those results and put it into a text file in the same folder as the river cracker and then put the textfile name at the end and make it so it only searches seeds where the structure can spawn which gives you less possible results if you don't have that many rivers.
 
 Example:
 
