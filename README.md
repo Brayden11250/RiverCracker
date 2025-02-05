@@ -41,5 +41,10 @@ You can include as many points as you want. just ensure you specify an x-coordin
 
 ## Bonus feature
 
-If you know where a structure with "liftable bits" is you can put the position of the structure in cubiomes run it on incremental until you get around 250k results you can take those results and put it into a text file in the same folder as the river cracker and then put the textfile name at the end and make it so it only searches seeds where the structure can spawn which gives you less possible results if you don't have that many rivers.
+If you know where a structure with "liftable bits" is you can put the position of the structure in cubiomes run it on incremental until you get around 250k results.
 
+You can theen take those results and put it into a text file in the same folder as the river cracker and then put the textfile name at the end and make it so it only searches seeds where the structure can spawn which gives you less possible results if you don't have that many rivers.
+
+Example:
+
+java RiverCracker -672 712 8 -704 649 8 -745 665 8 -749 687 8 -763 695 8 -772 680 8 -971 706 8 -1127 758 8 -1061 1152 8 -1077 1186 8 -1113 1210 8 -1141 1187 8 -1154 1163 8 -1171 1141 8 -1147 1111 8 -1124 1090 8 -1097 1071 8 -1075 1085 8 scale Villages.txt
