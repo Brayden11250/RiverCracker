@@ -55,7 +55,7 @@ There are two ways to specify the bounding boxes:
 ## Output
 Once the program is done running there it will output all the matches to output.txt (make sure to change the name if you want to keep old outputs or it will overwrite it)
 
-For every match found it will give two seeds because for every way a river can generate there are actually two 26bit seeds that will do it.
+For every match found it will give two seeds because for every way a river can generate there are actually two 26bit seeds that will do it. This other seed is called the partner seed and the world you are trying to crack has an equal chance of being either the regular seed or partner seed.
 
 ## Structures
 
