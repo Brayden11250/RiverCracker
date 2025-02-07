@@ -9,7 +9,7 @@ There are specific types of rivers called ocean rivers, that only generate when 
 
 To be safe, don't input coordinates for rivers that don't split off into two rivers before entering an ocean and don't use any in general that connect directly to an ocean within like 200 blocks.
 
-## Running the program
+## Setting up the program
 
   0. Make sure you have the Java Development Kit (JDK) installed.
     Download the JDK from: https://www.oracle.com/ca-en/java/technologies/downloads/
