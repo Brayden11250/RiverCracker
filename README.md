@@ -1,50 +1,74 @@
 # RiverCracker
 
-**RiverCracker** is a java Emulation of minecraft 1.7-1.17 River generation.
+RiverCracker is a Java emulation of Minecraft 1.7–1.17 river generation. It replicates the river-generation algorithms found in Minecraft (with some limitations) and is organized into multiple source files for modularity.
 
-## Important Limitations
 
-There are specific types of rivers, called ocean rivers, that only generate when near an ocean biome, which this program is not currently able to emulate. To avoid issues, generally refrain from inputting coordinates for rivers that are closer than 150 blocks to an ocean. A fix for this should be coming shortly.
+## Important Limitation
 
+There are specific types of rivers called ocean rivers, that only generate when near an ocean biome, which this program is not currently able to do. (A fix for this should be coming soon.)
+
+To be safe, don't input coordinates for rivers that don't split off into two rivers before entering an ocean and don't use any in general that connect directly to an ocean within like 200 blocks.
 
 ## Running the program
 
-Make sure you have JDK installed https://www.oracle.com/ca-en/java/technologies/downloads/
+  0. Make sure you have the Java Development Kit (JDK) installed.
+    Download the JDK from: https://www.oracle.com/ca-en/java/technologies/downloads/
 
-Place RiverCracker.java in a new folder
+  1. Place all files (RiverCracker.java, RiverGenerator.java, Bruteforce.java, RiverGUI.java) in the same folder.
+  
+  2. Open a command prompt (or terminal) in that folder.
 
-Create a .bat file with the text: javac RiverCracker.java
+  3. Compile the program using
 
-Run the file and you should see multiple .class files form.
+     javac RiverCracker.java RiverGenerator.java Bruteforce.java RiverGUI.java
+     
+## Running the Program
 
-Optionally, create a new .bat file with the text: java RiverCracker when you run it it will activate a gui which displays possible rivers of a seed.
+  • To launch the GUI run
+  
+         java RiverCracker gui
 
-There are other options but the most practical way is to run the program in scale mode.
+  • To generate a river image for a specific seed (saved as a PNG file):
+         java RiverCracker generate <seed> <output.png>
+     Example:
+     
+         java RiverCracker generate 123456789 output.png
 
-To run the program in scale mode create a new bat file for scale mode the syntax is java RiverCracker {xpos} {zpos} {scale} scale
+  • To run the program in bruteforce mode (searching for seeds based on bounding boxes or seed files):
+         java RiverCracker bruteforce [bounding box numbers and/or seedfile.txt]
+     
+There are two ways to specify the bounding boxes:
 
-For choosing your coordinates, select what appears to be the middle of a river stream for xpos and zpos. Then adjust the scale (8 works best in my opinion) to account for zoom. (If you are unsure what that means, just set the scale to 8.)
+       - **Scale Mode (Default):**
+           Provide groups of three numbers: {x-coordinate} {z-coordinate} {scale}.
+           The program converts each triple into a box centered at (x, z) with the specified scale.
+           Example:
+               java RiverCracker bruteforce -672 712 8 -704 649 8 -745 665 8
+(For your X and Z Cooridinatees it is recommended to go to what is visually the middle of a river and then setting scale to 8, in the example above each “8” represents the scale value.)
 
-Repeat the pattern {xpos} {zpos} 8 as many times as you need.
+       - **Range Mode:**
+           If you prefer to specify exact bounding box coordinates, supply groups of four numbers (xmin, zmin, xmax, zmax) and append the word **range** at the end.
+           Example:
+               java RiverCracker bruteforce 320 -103 323 -97 -200 400 -193 408 range
+(Make sure to put the lower number first. For negative number it's reversed i.e -201 is considered lower than -200)
 
-If you create a .bat file and enter the following text:
 
-java RiverCracker -672 712 8 -704 649 8 -745 665 8 -749 687 8 -763 695 8 -772 680 8 -971 706 8 -1127 758 8 -1061 1152 8 -1077 1186 8 -1113 1210 8 -1141 1187 8 -1154 1163 8 -1171 1141 8 -1147 1111 8 -1124 1090 8 -1097 1071 8 -1075 1085 8 scale
+## Structures
 
-You can test it to make sure the program is working you can enter that prompt and run it and it will open a command prompt and run for a bit and it will tell you the percentage and then say Match found on Seed: 4060776 and then keep telling you the percentage but won't have any other results.
+You can put in the name of text file (ending in “.txt”) as at the end of your command to have less false positive.
 
-All the 8s in the command represent the scale.
-
-The number immediately preceding the scale is the z-coordinate, and the number before that is the x-coordinate.
-
-You can include as many points as you want. just ensure you specify an x-coordinate, a z-coordinate, and a scale for each point in that exact order, or the program will refuse to run. And don't forget the word scale after you've added all your points.
-
-## Bonus feature
-
-If you know where a structure with "liftable bits" is you can put the position of the structure in cubiomes run it on incremental until you get around 250k results.
-
-You can then take those results and put it into a text file in the same folder as the river cracker and then put the textfile name at the end and make it so it only searches seeds where the structure can spawn which gives you less possible results if you don't have that many rivers.
-
+If you know where a structure with "liftable bits" is you can put the position of the structure in cubiomes (make sure you have the right version) run it on incremental until you get around 250k results.
 Example:
+  
+      java RiverCracker bruteforce -672 712 8 -704 649 8 -745 665 8 -1075 1085 8 Villages.txt
 
-java RiverCracker -672 712 8 -704 649 8 -745 665 8 -749 687 8 -763 695 8 -772 680 8 -971 706 8 -1127 758 8 -1061 1152 8 -1077 1186 8 -1113 1210 8 -1141 1187 8 -1154 1163 8 -1171 1141 8 -1147 1111 8 -1124 1090 8 -1097 1071 8 -1075 1085 8 scale Villages.txt
+
+## Structure (Code)
+
+  • RiverCracker.java – Contains the main entry point and mode-selection logic.
+  
+  • RiverGenerator.java – Contains the core river generation logic and helper methods.
+  
+  • Bruteforce.java – Implements the bruteforce seed search mode.
+  
+  • RiverGUI.java – Implements the GUI and image generation mode.
