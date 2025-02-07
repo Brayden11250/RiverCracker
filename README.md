@@ -52,6 +52,10 @@ There are two ways to specify the bounding boxes:
                java RiverCracker bruteforce 320 -103 323 -97 -200 400 -193 408 range
 (Make sure to put the lower number first. For negative number it's reversed i.e -201 is considered lower than -200)
 
+## Output
+Once the program is done running there it will output all the matches to output.txt (make sure to change the name if you want to keep old outputs or it will overwrite it)
+
+For every match found it will give two seeds because for every way a river can generate there are actually two 26bit seeds that will do it.
 
 ## Structures
 
@@ -62,6 +66,7 @@ Example:
   
       java RiverCracker bruteforce -672 712 8 -704 649 8 -745 665 8 -1075 1085 8 Villages.txt
 
+When structures are used partner seeds no longer matter.
 
 ## Structure (Code)
 
