@@ -5,9 +5,9 @@ RiverCracker is a Java emulation of Minecraft 1.7–1.17 river generation. It re
 
 ## Important Limitation
 
-There are specific types of rivers called ocean rivers, that only generate when near an ocean biome, which this program is not currently able to do. (A fix for this should be coming soon.)
+There are specific types of rivers called ocean rivers that only generate when near an ocean biome which this program is not currently able to emulate correctly. (A fix for this should be coming soon.)
 
-To be safe, don't input coordinates for rivers that don't split off into two rivers before entering an ocean and don't use any in general that connect directly to an ocean within like 200 blocks.
+To be safe, don't input coordinates for rivers that don't split off into two rivers before entering an ocean and don't use any in general that connect directly to an ocean within like 100 blocks.
 
 ## Setting up the program
 
@@ -59,7 +59,7 @@ For every match found it will give two seeds because for every way a river can g
 
 ## Structures
 
-You can put in the name of text file (ending in “.txt”) as at the end of your command to have less false positive.
+You can put in the name of text file (ending in “.txt”) as at the end of your command to have less false positives.
 
 If you know where a structure with "liftable bits" is you can put the position of the structure in cubiomes (make sure you have the right version) run it on incremental until you get around 250k results.
 Example:
